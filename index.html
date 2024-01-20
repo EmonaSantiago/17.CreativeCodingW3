@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div class="copy">
+			<h1><span>Emona</span> Santiago</h1>
+			<h6>spelen met creative coding</h6>
+		</div>
+
+		<div class="shapes">
+			<div class="shape-01 move-01"></div>
+			<div class="shape-02 move-02"></div>
+			<div class="shape-03 move-03"></div>
+		</div>
+	</body>
+</html>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Montserrat:wght@400&display=swap');
+
+	::selection {
+		color: #000;
+		background: pink;
+	}
+
+	body,
+	html {
+		margin: 0;
+		padding: 0;
+		color: #fff;
+		font-family: 'Montserrat', sans-serif;
+		font-size: 1.8rem;
+	}
+	.copy {
+		position: relative;
+		width: 280px;
+		margin: 18vh auto 0;
+		opacity: 0.6;
+		cursor: crosshair;
+		filter: invert(0);
+		transition: all 1.5s ease-in-out;
+		&:hover {
+			filter: invert(100%);
+		}
+		h1 {
+			font-family: 'Bodoni Moda', serif;
+			line-height: 3.5rem;
+			span {
+				color: rgb(255, 0, 123);
+			}
+		}
+		h6 {
+			font-size: 0.5rem;
+		}
+	}
+	[class^='shape-'] {
+		position: absolute;
+		left: 40%;
+		right: auto;
+		top: 20%;
+		bottom: auto;
+		background-color: violet;
+		width: 200px;
+		aspect-ratio: 1/1;
+		filter: blur(0.8rem);
+	}
+	.shapes {
+		position: fixed;
+		z-index: -1;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(17, 17, 17, 1);
+		.shape-01 {
+			z-index: 3;
+			width: 270px;
+			top: 35%;
+			left: 30%;
+			border-radius: 30% 70% 42% 58% / 41% 44% 56% 59%;
+			opacity: 0.8;
+			filter: blur(1.2rem);
+			background: rgb(231, 56, 56);
+			background: linear-gradient(
+				90deg,
+				rgba(231, 56, 56, 1) 0%,
+				rgba(201, 37, 195, 1) 46%,
+				rgba(153, 0, 0, 1) 100%
+			);
+		}
+		.shape-02 {
+			z-index: 1;
+			width: 250px;
+			top: 32%;
+			left: 56%;
+			border-radius: 45% 55% 28% 72% / 70% 27% 73% 30%;
+			opacity: 0.8;
+			filter: blur(1rem);
+			background: rgb(231, 56, 56);
+			background: linear-gradient(90deg, rgba(231, 56, 56, 1) 0%, rgba(143, 55, 124, 1) 100%);
+		}
+		.shape-03 {
+			z-index: 2;
+			width: 350px;
+			top: 12%;
+			left: 40%;
+			border-radius: 38% 62% 66% 34% / 53% 57% 43% 47%;
+			opacity: 0.8;
+			filter: blur(1.2rem);
+			background: rgb(203, 111, 29);
+			background: linear-gradient(
+				90deg,
+				rgba(203, 111, 29, 1) 0%,
+				rgba(252, 209, 139, 1) 50%,
+				rgba(232, 205, 165, 1) 100%
+			);
+		}
+	}
+
+	// Animation
+    
+    .move-01 {
+		animation: shape-01 10s ease-in-out infinite;
+	}
+	.move-02 {
+		animation: shape-02 20s ease-in-out infinite;
+	}
+	.move-03 {
+		animation: shape-03 60s ease-in-out infinite;
+	}
+
+	@-webkit-keyframes shape-01 {
+		0% {
+			rotate: 0deg;
+			transform: scale(1);
+		}
+		50% {
+			rotate: 20deg;
+			transform: scale(1.2);
+		}
+		100% {
+			rotate: 0deg;
+			transform: scale(1);
+		}
+	}
+
+	@-webkit-keyframes shape-02 {
+		0% {
+			top: 32%;
+			left: 56%;
+			rotate: 0deg;
+			transform: scale(1);
+		}
+		50% {
+			top: 42%;
+			left: 58%;
+			rotate: -60deg;
+			transform: scale(1.4);
+		}
+		100% {
+			top: 32%;
+			left: 56%;
+			rotate: 0deg;
+			transform: scale(1);
+		}
+	}
+
+	@-webkit-keyframes shape-03 {
+		0% {
+			left: 40%;
+			rotate: 0deg;
+			transform: scale(1);
+			border-radius: 38% 62% 66% 34% / 53% 57% 43% 47%;
+		}
+		50% {
+			left: 36%;
+			rotate: 360deg;
+			transform: scale(1.2);
+			border-radius: 50% / 50%;
+		}
+		100% {
+			left: 40%;
+			rotate: 0deg;
+			transform: scale(1);
+			border-radius: 38% 62% 66% 34% / 53% 57% 43% 47%;
+		}
+	}
+</style>
